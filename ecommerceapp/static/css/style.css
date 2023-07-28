@@ -1,0 +1,15 @@
+.card-footer{
+    background-color: rgb(225, 240, 245);
+}
+.card-price{
+    color: green;
+    font-size: 18px;
+    margin-top: -8px;
+}
+.card-title{
+    font-size: 20px;
+}
+.card-img{
+    height: 400px;
+    width: 300px;
+}

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    {% include 'cdnline.html'%}
+    <title>Shopping Site</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include 'navbar.html'%}
+    <div class="container-fluid">
+        <div class="row">
+            {% for product in data %}
+            <div class="col-md-3 mt-3">
+                <div class="card card-img">
+                    <div class="card-body">
+                        <img src="{{product.image }}" class="card-img-top" style="height: 300px; width: 260px;">
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-title" id="nm{{product.id}}">{{product.title }}</div>
+                        <div  class="card-price" id="price{{ product.id }}">{{ product.price }}</div>
+                        <a href="{{product.id}}"  class="btn btn-primary">View</a>
+                        <button id="{{product.id}}" class="btn add btn-warning">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row m-5">
+            <div class="col-md-4 offset-md-5 mt-5">
+                    <ul class="pagination">
+                    {% if data.has_previous %}
+                      <li class="page-item">
+                        <a class="page-link" href="?page={{data.previous_page_number}}">Previous</a>
+                      </li>
+                    {% endif %}
+
+                    <li class="page-item active">
+                        <a class="page-link" href="?page={{data.number}}">{{data.number}} Current</a>
+                    </li>
+
+                    {% if data.has_next %}
+                      <li class="page-item">
+                        <a class="page-link" href="?page={{data.next_page_number}}">Next</a>
+                      </li>
+                    {% endif %}
+                    </ul>
+            </div>
+        </div>
+    </div>
+<script src="{% static 'js/script.js' %}" type="text/javascript"></script> 
+</body>
+</html>

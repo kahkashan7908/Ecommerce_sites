@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'cdnline.html'%}
+    <title>Product details</title>
+</head>
+<body>
+    {% include 'navbar.html'%}
+    <div class="container">
+        <div class="row m-5">
+            <div class="col-md-6">
+                <img src="{{ data.image }}" height="350px" width="250px">
+            </div>
+            <div class="col-md-6">
+                <div> {{data.title }}</div>
+                <div><strike>{{data.price }}</strike></div>
+                <div> {{data.discount_price }}</div>
+                <div>{{ data.description }}</div>
+            </div>
+        </div>   
+    </div>
+    
+</body>
+</html>
